@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Who Gets to Live Here?</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Mapbox GL JS -->
+  <link
+    href="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.css"
+    rel="stylesheet"
+  />
+  <script src="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.js"></script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="header-content">
+      <p class="eyebrow">NYC Housing Affordability Explorer</p>
+
+      <h1>Who Gets to Live Here?</h1>
+
+      <p class="subtitle">
+        Explore how median rent changes across New York City, then zoom into
+        Manhattan to see how income shapes housing affordability at the neighborhood level.
+      </p>
+
+      <p class="instruction">
+        Start by clicking a borough. Click Manhattan to explore neighborhoods and test affordability by income.
+      </p>
+    </div>
+  </header>
+
+  <main>
+    <section class="map-section">
+      <aside class="sidebar">
+        <h2>Explore the Map</h2>
+
+        <p id="map-description">
+          The map begins with NYC boroughs colored by estimated median rent.
+        </p>
+
+        <div class="control-group">
+          <label for="income-select">Select annual income:</label>
+          <select id="income-select">
+            <option value="40000">$40,000</option>
+            <option value="60000" selected>$60,000</option>
+            <option value="80000">$80,000</option>
+            <option value="100000">$100,000</option>
+            <option value="120000">$120,000</option>
+          </select>
+        </div>
+
+        <div class="legend">
+          <h3>Legend</h3>
+
+          <div class="legend-item">
+            <span class="legend-color rent-low"></span>
+            <span>Lower median rent</span>
+          </div>
+
+          <div class="legend-item">
+            <span class="legend-color rent-mid"></span>
+            <span>Medium median rent</span>
+          </div>
+
+          <div class="legend-item">
+            <span class="legend-color rent-high"></span>
+            <span>Higher median rent</span>
+          </div>
+
+          <hr />
+
+          <div class="legend-item">
+            <span class="legend-color affordable"></span>
+            <span>Affordable at selected income</span>
+          </div>
+
+          <div class="legend-item">
+            <span class="legend-color not-affordable"></span>
+            <span>Not affordable at selected income</span>
+          </div>
+        </div>
+
+        <button id="reset-button">Reset to Borough View</button>
+      </aside>
+
+      <div id="map"></div>
+    </section>
+
+    <section class="insights-section">
+      <h2>Why this matters</h2>
+
+      <div class="insight-cards">
+        <article class="insight-card">
+          <h3>Housing access is uneven</h3>
+          <p>
+            Median rent varies widely across New York City, shaping who can realistically live in different neighborhoods.
+          </p>
+        </article>
+
+        <article class="insight-card">
+          <h3>Income changes the map</h3>
+          <p>
+            The affordability calculation uses the common 30% rule: housing is considered affordable when monthly rent is no more than 30% of monthly income.
+          </p>
+        </article>
+
+        <article class="insight-card">
+          <h3>Manhattan tells a sharper story</h3>
+          <p>
+            The borough-level map introduces the rent geography, while the Manhattan view shows how affordability changes neighborhood by neighborhood.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="methodology-section">
+      <h2>Methodology</h2>
+
+      <p>
+        This project uses interactive web mapping to compare estimated median rents with income-based affordability thresholds.
+        A selected income is converted into a monthly affordable rent using the 30% affordability rule.
+      </p>
+
+      <p>
+        Built with HTML, CSS, JavaScript, Mapbox GL JS, and GeoJSON.
+      </p>
+    </section>
+  </main>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
