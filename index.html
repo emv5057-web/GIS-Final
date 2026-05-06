@@ -27,49 +27,77 @@
     </div>
   </header>
 
-  <main>
-    <section class="map-section">
-      <aside class="sidebar">
-        <h2>Explore the Map</h2>
+<section class="map-section">
+  <aside class="sidebar">
+    <h2>Explore the Map</h2>
 
-        <p id="map-description">
-          Select an income level, then click a neighborhood to compare estimated rent with what would be affordable under the 30% rule.
-        </p>
+    <p id="map-description">
+      Select an income level, then click a neighborhood to compare estimated rent with what would be affordable under the 30% rule.
+    </p>
 
-        <div class="control-group">
-          <label for="income-select">Select annual income:</label>
-          <select id="income-select">
-            <option value="40000">$40,000</option>
-            <option value="60000" selected>$60,000</option>
-            <option value="80000">$80,000</option>
-            <option value="100000">$100,000</option>
-            <option value="120000">$120,000</option>
-            <option value="150000">$150,000</option>
-            <option value="200000">$200,000</option>
-          </select>
-        </div>
+    <div class="control-group">
+      <label for="income-select">Select annual income:</label>
+      <select id="income-select">
+        <option value="40000">$40,000</option>
+        <option value="60000" selected>$60,000</option>
+        <option value="80000">$80,000</option>
+        <option value="100000">$100,000</option>
+        <option value="120000">$120,000</option>
+        <option value="150000">$150,000</option>
+        <option value="200000">$200,000</option>
+      </select>
+    </div>
 
-        <div class="legend">
-          <h3>Legend</h3>
+    <div class="legend">
+      <h3>Map Colors</h3>
 
-          <div class="legend-item">
-            <span class="legend-color rent-high"></span>
-            <span>Manhattan</span>
-          </div>
+      <div class="legend-item">
+        <span class="legend-color manhattan-color"></span>
+        <span>Manhattan</span>
+      </div>
 
-          <div class="legend-item">
-            <span class="legend-color rent-mid"></span>
-            <span>Brooklyn</span>
-          </div>
+      <div class="legend-item">
+        <span class="legend-color brooklyn-color"></span>
+        <span>Brooklyn</span>
+      </div>
 
-          <div class="legend-item">
-            <span class="legend-color rent-low"></span>
-            <span>Queens / Bronx / Staten Island</span>
-          </div>
-        </div>
+      <div class="legend-item">
+        <span class="legend-color queens-color"></span>
+        <span>Queens</span>
+      </div>
 
-        <button id="reset-button">Reset Map</button>
-      </aside>
+      <div class="legend-item">
+        <span class="legend-color bronx-color"></span>
+        <span>Bronx</span>
+      </div>
+
+      <div class="legend-item">
+        <span class="legend-color staten-color"></span>
+        <span>Staten Island</span>
+      </div>
+    </div>
+
+    <div class="legend note-box">
+      <h3>Popup Metrics</h3>
+      <p>
+        Click a neighborhood to see median rent, median household income,
+        affordable rent at your selected income, and the affordability gap.
+      </p>
+    </div>
+
+    <button id="reset-button">Reset Map</button>
+  </aside>
+
+  <div id="map"></div>
+</section>
+
+<div class="legend note-box">
+  <h3>Popup Metrics</h3>
+  <p>
+    Click a neighborhood to see median rent, median household income,
+    affordable rent at your selected income, and the affordability gap.
+  </p>
+</div>
 
       <div id="map"></div>
     </section>
