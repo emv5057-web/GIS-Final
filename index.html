@@ -5,14 +5,9 @@
   <title>Who Gets to Live Here?</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Mapbox GL JS -->
-  <link
-    href="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.css"
-    rel="stylesheet"
-  />
+  <link href="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.css" rel="stylesheet" />
   <script src="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.js"></script>
 
-  <!-- CSS -->
   <link rel="stylesheet" href="styles.css" />
 </head>
 
@@ -20,16 +15,14 @@
   <header class="site-header">
     <div class="header-content">
       <p class="eyebrow">NYC Housing Affordability Explorer</p>
-
       <h1>Who Gets to Live Here?</h1>
 
       <p class="subtitle">
-        Explore how median rent changes across New York City, then zoom into
-        Manhattan to see how income shapes housing affordability at the neighborhood level.
+        Explore how estimated rents compare with income-based affordability across New York City neighborhoods.
       </p>
 
       <p class="instruction">
-        Start by clicking a borough. Click Manhattan to explore neighborhoods and test affordability by income.
+        Select an income level, then click a neighborhood to see the monthly affordability gap.
       </p>
     </div>
   </header>
@@ -40,7 +33,7 @@
         <h2>Explore the Map</h2>
 
         <p id="map-description">
-          The map begins with NYC boroughs colored by estimated median rent.
+          Select an income level, then click a neighborhood to compare estimated rent with what would be affordable under the 30% rule.
         </p>
 
         <div class="control-group">
@@ -51,6 +44,8 @@
             <option value="80000">$80,000</option>
             <option value="100000">$100,000</option>
             <option value="120000">$120,000</option>
+            <option value="150000">$150,000</option>
+            <option value="200000">$200,000</option>
           </select>
         </div>
 
@@ -58,34 +53,22 @@
           <h3>Legend</h3>
 
           <div class="legend-item">
-            <span class="legend-color rent-low"></span>
-            <span>Lower median rent</span>
+            <span class="legend-color rent-high"></span>
+            <span>Manhattan</span>
           </div>
 
           <div class="legend-item">
             <span class="legend-color rent-mid"></span>
-            <span>Medium median rent</span>
+            <span>Brooklyn</span>
           </div>
 
           <div class="legend-item">
-            <span class="legend-color rent-high"></span>
-            <span>Higher median rent</span>
-          </div>
-
-          <hr />
-
-          <div class="legend-item">
-            <span class="legend-color affordable"></span>
-            <span>Affordable at selected income</span>
-          </div>
-
-          <div class="legend-item">
-            <span class="legend-color not-affordable"></span>
-            <span>Not affordable at selected income</span>
+            <span class="legend-color rent-low"></span>
+            <span>Queens / Bronx / Staten Island</span>
           </div>
         </div>
 
-        <button id="reset-button">Reset to Borough View</button>
+        <button id="reset-button">Reset Map</button>
       </aside>
 
       <div id="map"></div>
@@ -98,21 +81,21 @@
         <article class="insight-card">
           <h3>Housing access is uneven</h3>
           <p>
-            Median rent varies widely across New York City, shaping who can realistically live in different neighborhoods.
+            Median rents vary widely across New York City, shaping who can realistically live in different neighborhoods.
           </p>
         </article>
 
         <article class="insight-card">
-          <h3>Income changes the map</h3>
+          <h3>Affordability is a gap, not just yes or no</h3>
           <p>
-            The affordability calculation uses the common 30% rule: housing is considered affordable when monthly rent is no more than 30% of monthly income.
+            Instead of only labeling places affordable or unaffordable, this map shows how far estimated rent is above or below an income-based affordable rent.
           </p>
         </article>
 
         <article class="insight-card">
-          <h3>Manhattan tells a sharper story</h3>
+          <h3>Neighborhoods tell the story</h3>
           <p>
-            The borough-level map introduces the rent geography, while the Manhattan view shows how affordability changes neighborhood by neighborhood.
+            Clicking each neighborhood reveals how rent, income, and affordability interact at a local scale.
           </p>
         </article>
       </div>
@@ -123,7 +106,12 @@
 
       <p>
         This project uses interactive web mapping to compare estimated median rents with income-based affordability thresholds.
-        A selected income is converted into a monthly affordable rent using the 30% affordability rule.
+        A selected income is converted into affordable monthly rent using the 30% rule.
+      </p>
+
+      <p>
+        The affordability gap is calculated as estimated median rent minus affordable monthly rent.
+        Positive values indicate rent above the selected income threshold.
       </p>
 
       <p>
@@ -132,7 +120,7 @@
     </section>
   </main>
 
-  <!-- JavaScript -->
+  <script src="data/neighborhood-data.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
