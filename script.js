@@ -10,6 +10,12 @@ const map = new mapboxgl.Map({
   scrollZoom: false
 });
 
+map.addSource("neighborhoods", {
+  type: "geojson",
+  data: "neighborhoods.geojson"
+});
+
+
 // Income selector and reset button
 const incomeSelect = document.getElementById("income-select");
 const resetButton = document.getElementById("reset-button");
@@ -31,6 +37,40 @@ function getAffordabilityColorExpression(income) {
     "#d95f5f"  // not affordable
   ];
 }
+map.on("click", "neighborhood-fill", (event) => {
+  const props = event.features[0].properties;
+
+  new mapboxgl.Popup()
+    .setLngLat(event.lngLat)
+    .setHTML(`
+      <h3>${props.neighborhood}</h3>
+      <p><strong>Borough:</strong> ${props.borough}</p>
+      <p><strong>Median rent:</strong> Add rent data here</p>
+      <p><strong>Median income:</strong> Add income data here</p>
+    `)
+    .addTo(map);
+});
+
+
+map.addLayer({
+  id: "neighborhood-fill",
+  type: "fill",
+  source: "neighborhoods",
+  paint: {
+    "fill-color": "#d95f5f",
+    "fill-opacity": 0.55
+  }
+});
+
+map.addLayer({
+  id: "neighborhood-outline",
+  type: "line",
+  source: "neighborhoods",
+  paint: {
+    "line-color": "#ffffff",
+    "line-width": 1
+  }
+});
 
 // Load data and map layers
 map.on("load", () => {
