@@ -50,6 +50,9 @@ Affordable monthly rent is calculated using the commonly used 30% affordability 
 
 ```text
 Affordable Monthly Rent = (Annual Income × 0.30) ÷ 12
+```
+
+---
 
 ## Data Sources
 
