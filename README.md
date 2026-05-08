@@ -50,3 +50,11 @@ Affordable monthly rent is calculated using the commonly used 30% affordability 
 
 ```text
 Affordable Monthly Rent = (Annual Income × 0.30) ÷ 12
+
+## Data Sources
+
+- NYC Neighborhood GeoJSON boundaries
+- RentReboot neighborhood rent averages: https://rentreboot.com/average
+- Estimated household income values used for educational visualization purposes
+
+Neighborhood rent values were informed by publicly available rental market averages from RentReboot. Income values are simplified estimates intended to support exploratory mapping and affordability visualization.
