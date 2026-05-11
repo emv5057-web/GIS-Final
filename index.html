@@ -16,88 +16,76 @@
     <div class="header-content">
       <p class="eyebrow">NYC Housing Affordability Explorer</p>
       <h1>Who Gets to Live Here?</h1>
-
       <p class="subtitle">
         Explore how estimated rents compare with income-based affordability across New York City neighborhoods.
       </p>
-
       <p class="instruction">
         Select an income level, then click a neighborhood to see the monthly affordability gap.
       </p>
     </div>
   </header>
 
-<section class="map-section">
-  <aside class="sidebar">
-    <h2>Explore the Map</h2>
+  <main>
+    <section class="map-section">
+      <aside class="sidebar">
+        <h2>Explore the Map</h2>
 
-    <p id="map-description">
-      Select an income level, then click a neighborhood to compare estimated rent with what would be affordable under the 30% rule.
-    </p>
+        <p id="map-description">
+          At an annual income of $60,000, affordable monthly rent is about $1,500 under the 30% rule.
+        </p>
 
-    <div class="control-group">
-      <label for="income-select">Select annual income:</label>
-      <select id="income-select">
-        <option value="40000">$40,000</option>
-        <option value="60000" selected>$60,000</option>
-        <option value="80000">$80,000</option>
-        <option value="100000">$100,000</option>
-        <option value="120000">$120,000</option>
-        <option value="150000">$150,000</option>
-        <option value="200000">$200,000</option>
-      </select>
-    </div>
+        <div class="control-group">
+          <label for="income-select">Select annual income:</label>
+          <select id="income-select">
+            <option value="40000">$40,000</option>
+            <option value="60000" selected>$60,000</option>
+            <option value="80000">$80,000</option>
+            <option value="100000">$100,000</option>
+            <option value="120000">$120,000</option>
+            <option value="150000">$150,000</option>
+            <option value="200000">$200,000</option>
+          </select>
+        </div>
 
-    <div class="legend">
-      <h3>Map Colors</h3>
+        <div class="legend">
+          <h3>Affordability Gap</h3>
 
-      <div class="legend-item">
-        <span class="legend-color manhattan-color"></span>
-        <span>Manhattan</span>
-      </div>
+          <div class="legend-item">
+            <span class="legend-color affordable-color"></span>
+            <span>Affordable or below budget</span>
+          </div>
 
-      <div class="legend-item">
-        <span class="legend-color brooklyn-color"></span>
-        <span>Brooklyn</span>
-      </div>
+          <div class="legend-item">
+            <span class="legend-color small-gap-color"></span>
+            <span>$1–$500 above budget</span>
+          </div>
 
-      <div class="legend-item">
-        <span class="legend-color queens-color"></span>
-        <span>Queens</span>
-      </div>
+          <div class="legend-item">
+            <span class="legend-color medium-gap-color"></span>
+            <span>$501–$1,000 above budget</span>
+          </div>
 
-      <div class="legend-item">
-        <span class="legend-color bronx-color"></span>
-        <span>Bronx</span>
-      </div>
+          <div class="legend-item">
+            <span class="legend-color large-gap-color"></span>
+            <span>$1,001–$1,500 above budget</span>
+          </div>
 
-      <div class="legend-item">
-        <span class="legend-color staten-color"></span>
-        <span>Staten Island</span>
-      </div>
-    </div>
+          <div class="legend-item">
+            <span class="legend-color severe-gap-color"></span>
+            <span>More than $1,500 above budget</span>
+          </div>
+        </div>
 
-    <div class="legend note-box">
-      <h3>Popup Metrics</h3>
-      <p>
-        Click a neighborhood to see median rent, median household income,
-        affordable rent at your selected income, and the affordability gap.
-      </p>
-    </div>
+        <div class="legend note-box">
+          <h3>Popup Metrics</h3>
+          <p>
+            Click a neighborhood to see median rent, median household income,
+            affordable rent at your selected income, and the affordability gap.
+          </p>
+        </div>
 
-    <button id="reset-button">Reset Map</button>
-  </aside>
-
-  <div id="map"></div>
-</section>
-
-<div class="legend note-box">
-  <h3>Popup Metrics</h3>
-  <p>
-    Click a neighborhood to see median rent, median household income,
-    affordable rent at your selected income, and the affordability gap.
-  </p>
-</div>
+        <button id="reset-button">Reset Map</button>
+      </aside>
 
       <div id="map"></div>
     </section>
